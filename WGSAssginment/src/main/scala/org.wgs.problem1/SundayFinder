@@ -1,0 +1,19 @@
+package org.wgs.problem1
+
+import java.time._
+
+object SundayFinder {
+  def main(args: Array[String]): Unit = {
+    var dayCounter = 0
+    var startDate = LocalDate.of(1901, Month.JANUARY, 1)
+    val endDate = LocalDate.of(2001, Month.JANUARY, 1)
+    while (startDate.isBefore(endDate)) {
+      startDate = startDate.plusMonths(1)
+      startDate.getDayOfWeek match {
+        case DayOfWeek.SUNDAY => dayCounter += 1
+        case _ => dayCounter
+      }
+    }
+    println(dayCounter)
+  }
+}
